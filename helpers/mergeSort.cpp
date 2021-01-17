@@ -1,49 +1,42 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-#include <iostream>
+void recursiveMergeSort(int arr[], int temp[], int left, int right) {
+  if (left >= right) return;
 
-void mergeSort(int numbers[], int length) {
-  if (length == 1) {
-    return;
-  }
+  int mid = (right + left) / 2;
+  recursiveMergeSort(arr, temp, left, mid);
+  recursiveMergeSort(arr, temp, mid + 1, right);
 
-  int left[length / 2];
-  int right[(length + 1) / 2];
+  int i = left;
+  int j = mid + 1;
+  int tempi = left;
 
-  for (int i = 0; i < length / 2; ++i) {
-    left[i] = numbers[i];
-  }
-
-  for (int i = length / 2; i < length; ++i) {
-    right[i - length / 2] = numbers[i];
-  }
-
-  mergeSort(left, length / 2);
-  mergeSort(right, (length + 1) / 2);
-
-  int *pos1 = &left[0];
-  int *pos2 = &right[0];
-
-  for (int i = 0; i < length; ++i) {
-    if (*pos1 <= *pos2) {
-      numbers[i] = *pos1;
-      if (pos1 != &right[(length + 1) / 2 - 1]) {
-        if (pos1 == &left[length / 2 - 1]) {
-          pos1 = &right[(length + 1) / 2 - 1];
-        } else {
-          ++pos1;
-        }
-      }
+  for (; i <= mid && j <= right; ++tempi) {
+    if (arr[i] < arr[j]) {
+      temp[tempi] = arr[i++];
     } else {
-      numbers[i] = *pos2;
-      if (pos2 == &right[(length + 1) / 2 - 1]) {
-        pos2 = &left[length / 2 - 1];
-      } else {
-        ++pos2;
-      }
+      temp[tempi] = arr[j++];
     }
   }
+
+  if (i > mid) {
+    right = tempi - 1;
+  }
+
+  for (; tempi <= right; ++tempi, ++i) {
+    temp[tempi] = arr[i];
+  }
+
+  for (int k = left; k <= right; ++k) {
+    arr[k] = temp[k];
+  }
+}
+
+void mergeSort(int numbers[], int length) {
+  int temp[length];
+
+  recursiveMergeSort(numbers, temp, 0, length - 1);
 }
 
 #endif

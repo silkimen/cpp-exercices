@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "../helpers/bubbleSort.cpp"
+#include "../helpers/insertionSort.cpp"
 #include "../helpers/mergeSort.cpp"
 
 using namespace std;
@@ -62,7 +63,8 @@ void doBubbleSort() {
 }
 
 void doInsertionSort() {
-  cout << "TODO" << endl;
+  insertionSort(numbers, NUMBER_COUNT);
+  cout << "Die Zahlen wurden mit Insertion Sort sortiert." << endl;
   printNumbers();
 }
 
