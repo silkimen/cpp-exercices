@@ -7,8 +7,8 @@
 
 using namespace std;
 
-char ONES[] = {'I', 'X', 'C', 'M'};
-char FIVES[] = {'V', 'L', 'D'};
+const char ONES[] = {'I', 'X', 'C', 'M'};
+const char FIVES[] = {'V', 'L', 'D'};
 
 string getRomanNumeral(string intermediateValue, int remainder, int decimalPower) {
   int decimalDigit = getDigit(remainder, decimalPower);

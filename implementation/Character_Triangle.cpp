@@ -5,8 +5,8 @@
 
 using namespace std;
 
-int MIN_ROW = 3;
-int MAX_ROW = 20;
+const int MIN_ROW = 3;
+const int MAX_ROW = 20;
 
 void printCharTriangle(int whitespaces, int rows, char character) {
   for (int i = 1; i <= rows; ++i) {
