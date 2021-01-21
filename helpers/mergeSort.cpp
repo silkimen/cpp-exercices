@@ -13,6 +13,12 @@ void recursiveMergeSort(int arr[], int temp[], int left, int right) {
   int tempi = left;
 
   for (; i <= mid && j <= right; ++tempi) {
+    // ascending
+    // if (arr[i] < arr[j]) {
+
+    // descending
+    // if (arr[i] > arr[j]) {
+
     if (arr[i] < arr[j]) {
       temp[tempi] = arr[i++];
     } else {
