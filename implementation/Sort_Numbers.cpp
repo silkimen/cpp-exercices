@@ -3,6 +3,7 @@
 #include "../helpers/bubbleSort.cpp"
 #include "../helpers/insertionSort.cpp"
 #include "../helpers/mergeSort.cpp"
+#include "../helpers/quickSort.cpp"
 
 using namespace std;
 
@@ -74,6 +75,12 @@ void doMergeSort() {
   printNumbers();
 }
 
+void doQuickSort() {
+  quickSort(numbers, NUMBER_COUNT);
+  cout << "Die Zahlen wurden mit Quick Sort sortiert." << endl;
+  printNumbers();
+}
+
 char showMenu() {
   char selection = 0;
 
@@ -84,7 +91,8 @@ char showMenu() {
     cout << "3: Zahlen mit Bubble Sort sortieren" << endl;
     cout << "4: Zahlen mit Insertion Sort sortieren" << endl;
     cout << "5: Zahlen mit Merge Sort sortieren" << endl;
-    cout << "6: Zahlen ausgeben" << endl;
+    cout << "6: Zahlen mit Quick Sort sortieren" << endl;
+    cout << "7: Zahlen ausgeben" << endl;
     cout << endl;
     cout << "q: Programm beenden" << endl;
     cout << endl;
@@ -92,7 +100,7 @@ char showMenu() {
 
     cin >> selection;
 
-    if ((selection >= '1' && selection <= '6') || selection == 'q') {
+    if ((selection >= '1' && selection <= '7') || selection == 'q') {
       cout << endl;
       return selection;
     }
@@ -130,6 +138,9 @@ int main() {
         doMergeSort();
         break;
       case '6':
+        doQuickSort();
+        break;
+      case '7':
         printNumbers();
         break;
       case 'q':

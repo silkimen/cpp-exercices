@@ -1,3 +1,7 @@
+// Name: Ilkimen, Sergen
+// Matr.Nr: 1610216
+// Aufgabe: 3
+
 #include <iostream>
 
 using namespace std;
@@ -49,7 +53,7 @@ char readChar() {
   char character;
 
   while (true) {
-    cout << "Bitte geben Sie einen Buchstaben ein (nur a - z): ";
+    cout << "Bitte geben Sie einen Buchstaben ein (nur a - z bzw. A - Z): ";
     cin >> character;
 
     if (character >= 'a' && character <= 'z' || character >= 'A' && character <= 'Z') {
@@ -70,8 +74,8 @@ char decrypt(char input, int key, char offset) {
 
 int main() {
   cout << endl;
-  cout << "Aufgabe: Caeser Verschluesselung" << endl;
-  cout << "================================" << endl;
+  cout << "Aufgabe 3: Caeser Verschluesselung" << endl;
+  cout << "==================================" << endl;
   cout << endl;
 
   int key;
